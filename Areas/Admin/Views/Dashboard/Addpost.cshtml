@@ -1,0 +1,36 @@
+﻿@model CodebitsBlog.Areas.Admin.Models.Post
+
+@{
+    ViewData["Title"] = "Add Post";
+}
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Add Post</h1>
+
+    <form asp-area="admin" asp-controller="dashboard" asp-action="login" method="post" class="user">
+        <div class="form-group">
+            <textarea type="text" class="form-control form-control-user"
+                   id="exampleInputEmail" aria-describedby="emailHelp"
+                   placeholder="Enter Post" asp-for="Body"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category">Choose a category:</label>
+
+            <select name="caategories">
+                <option value="Sports">Sports</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="News">News</option>
+                <option value="Update">Update</option>
+            </select>
+           </div>
+        
+        <input type="submit" value="Add" class="btn btn-primary btn-user btn-block" />
+       
+    </form>
+    <hr>
+
+</div>
