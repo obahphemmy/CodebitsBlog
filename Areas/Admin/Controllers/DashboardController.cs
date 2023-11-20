@@ -1,5 +1,4 @@
-﻿using CodebitsBlog.Areas.Admin.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodebitsBlog.Areas.Admin.Controllers
@@ -19,22 +18,6 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         }
 
         public async Task<IActionResult> Register()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> Post()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> Addpost()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Addpost(Post post)
         {
             return View();
         }
