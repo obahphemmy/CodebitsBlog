@@ -2,6 +2,6 @@
 {
     public class PostViewModel
     {
-       IEnumerable<Post> Posts { get; set; } = Enumerable.Empty<Post>();
+       IEnumerable<Poste> Posts { get; set; } = Enumerable.Empty<Poste>();
     }
 }

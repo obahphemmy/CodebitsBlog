@@ -1,6 +1,6 @@
 ﻿namespace CodebitsBlog.Areas.Admin.Models
 {
-    public class Comment
+    public class Commente
     {
         public string Body { get; set; }
     }

@@ -23,18 +23,18 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> NewPost()
         {
             return View();
         }
 
-        public async Task<IActionResult> Addpost()
+        public async Task<IActionResult> Addedpost()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Addpost(Post post)
+        public async Task<IActionResult> Addedpost(Poste post)
         {
             return View();
         }
