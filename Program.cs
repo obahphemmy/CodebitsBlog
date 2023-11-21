@@ -1,3 +1,9 @@
+using CodebitsBlog.Areas.Admin.Models;
+using CodebitsBlog.Areas.Admin.Services;
+using CodebitsBlog.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace CodebitsBlog
 {
 	public class Program
@@ -8,6 +14,39 @@ namespace CodebitsBlog
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+			builder.Services.AddDbContext<ApplicationDbContext>(options =>
+			                options.UseSqlServer(connectionString));
+
+			builder.Services.AddIdentity<ApplicationUser, IdentityRole<string>>(options =>
+			{
+                                options.Password.RequireDigit = true;
+                                options.Password.RequireLowercase = true;
+                                options.Password.RequireUppercase = true;
+                                options.Password.RequireNonAlphanumeric = true;
+                                options.Password.RequiredLength = 5;
+                                options.SignIn.RequireConfirmedAccount = false;
+                                options.SignIn.RequireConfirmedEmail = false;
+                                options.SignIn.RequireConfirmedPhoneNumber = false;
+                                options.User.RequireUniqueEmail = true;
+								options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+								options.Lockout.MaxFailedAccessAttempts = 5;
+								options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                            })
+                            .AddEntityFrameworkStores<ApplicationDbContext>()
+                            .AddDefaultTokenProviders();
+
+			builder.Services.ConfigureApplicationCookie(options =>
+			{
+                options.LoginPath = "/admin/dashboard/login";
+                options.LogoutPath = "/admin/dashboard/login";
+                options.AccessDeniedPath = "/admin/dashboard/login";
+            });
+
+
+			builder.Services.AddScoped<IUserService, UserService>();
 
 			var app = builder.Build();
 
