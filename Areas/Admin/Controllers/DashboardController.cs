@@ -21,6 +21,21 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Post()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Addedpost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Addedpost(Post post)
+        {
+            return View();
+        }
 
         public async Task<IActionResult> Error()
         {
@@ -31,6 +46,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
         public async Task<IActionResult> Comment()
+
         {
             return View();
         }
