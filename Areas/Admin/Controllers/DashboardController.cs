@@ -1,4 +1,3 @@
-﻿using CodebitsBlog.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +6,6 @@ namespace CodebitsBlog.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class DashboardController : Controller
 	{
-        [Authorize]
 		public async Task<IActionResult> Index()
 		{
 			return View();
@@ -23,18 +21,16 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Post()
+
+        public async Task<IActionResult> Error()
         {
             return View();
         }
-
-        public async Task<IActionResult> Addpost()
+        public async Task<IActionResult> Category()
         {
             return View();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Addpost(Post post)
+        public async Task<IActionResult> Comment()
         {
             return View();
         }
