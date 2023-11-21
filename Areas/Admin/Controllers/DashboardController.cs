@@ -21,5 +21,19 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             return View();
         }
+
+
+        public async Task<IActionResult> Error()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Category()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Comment()
+        {
+            return View();
+        }
     }
 }
