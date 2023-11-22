@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CodebitsBlog.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class create : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -180,7 +180,7 @@ namespace CodebitsBlog.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName", "UserRoleId" },
-                values: new object[] { "1", 0, "560e11da-85c7-410b-9d9e-f2841bc6eb04", "james@gmail.com", false, "James", "Bond", false, null, "JAMES@GMAIL.COM", "JAMES@GMAIL.COM", "AQAAAAIAAYagAAAAEEZ4LpyWbXJkyg8uX7yBcSS53PhBWSX7MEi4KUSgDNEIlXJOtMjQBbQFYmeYyr8ylw==", null, false, "", "a0d2c05b-69e6-408e-8592-fa498fe46a4f", false, "james@gmail.com", "1" });
+                values: new object[] { "1", 0, "07ec36a7-5202-4bca-9af2-5de29e510ad0", "james@gmail.com", false, "James", "Bond", false, null, "JAMES@GMAIL.COM", "JAMES@GMAIL.COM", "AQAAAAIAAYagAAAAEDY4A45vktUVfoq5eLgtPTwFmzCXnklTdychgWfKUXOlloIo6Q7+jp11o6waQoADJw==", null, false, "", "e7c70de0-1576-432e-bc97-fe5c04bb1967", false, "james@gmail.com", "1" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

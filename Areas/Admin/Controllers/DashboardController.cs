@@ -129,5 +129,23 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Profile()
+
+        {
+            return View();
+        }
+        public async Task<IActionResult> CategoryList()
+
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> EditProfile()
+
+        {
+            return View();
+        }
+       
+
     }
 }
