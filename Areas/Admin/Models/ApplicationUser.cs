@@ -7,7 +7,7 @@ namespace CodebitsBlog.Areas.Admin.Models
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? ProfilePictureUrl { get; set; }
-        public IdentityRole<string> UserRole { get; set; }
-        public string UserRoleId { get; set; }
+        public IdentityRole? UserRole { get; set; }
+        public string? UserRoleId { get; set; }
     }
 }

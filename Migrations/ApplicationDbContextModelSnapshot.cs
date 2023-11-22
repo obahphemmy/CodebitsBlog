@@ -84,7 +84,6 @@ namespace CodebitsBlog.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("UserRoleId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -104,17 +103,20 @@ namespace CodebitsBlog.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8f698ed6-2f71-487f-a7df-c247347b19e8",
+                            Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5d57e5f7-dfe1-42ef-b74d-5bcfedaf0409",
+                            ConcurrencyStamp = "560e11da-85c7-410b-9d9e-f2841bc6eb04",
                             Email = "james@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "James",
                             LastName = "Bond",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEORnSTuQG//eq/TDG6ByfMrZVCply9TfLFZok+MKCHW+VCLGRWhGa1nNp4gVgZakyg==",
+                            NormalizedEmail = "JAMES@GMAIL.COM",
+                            NormalizedUserName = "JAMES@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEZ4LpyWbXJkyg8uX7yBcSS53PhBWSX7MEi4KUSgDNEIlXJOtMjQBbQFYmeYyr8ylw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "",
+                            SecurityStamp = "a0d2c05b-69e6-408e-8592-fa498fe46a4f",
                             TwoFactorEnabled = false,
                             UserName = "james@gmail.com",
                             UserRoleId = "1"
@@ -241,6 +243,13 @@ namespace CodebitsBlog.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "1"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -285,11 +294,9 @@ namespace CodebitsBlog.Migrations
 
             modelBuilder.Entity("CodebitsBlog.Areas.Admin.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<string>", "UserRole")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "UserRole")
                         .WithMany()
-                        .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserRoleId");
 
                     b.Navigation("UserRole");
                 });

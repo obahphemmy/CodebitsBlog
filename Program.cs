@@ -1,6 +1,7 @@
 using CodebitsBlog.Areas.Admin.Models;
 using CodebitsBlog.Areas.Admin.Services;
 using CodebitsBlog.Data;
+using CodebitsBlog.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,6 +48,8 @@ namespace CodebitsBlog
 
 
 			builder.Services.AddScoped<IUserService, UserService>();
+
+			builder.Services.AddSingleton<UtilityService>();
 
 			var app = builder.Build();
 

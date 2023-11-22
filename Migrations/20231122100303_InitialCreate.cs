@@ -57,7 +57,7 @@ namespace CodebitsBlog.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfilePictureUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserRoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserRoleId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -80,8 +80,7 @@ namespace CodebitsBlog.Migrations
                         name: "FK_AspNetUsers_AspNetRoles_UserRoleId",
                         column: x => x.UserRoleId,
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -140,13 +139,13 @@ namespace CodebitsBlog.Migrations
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -181,7 +180,12 @@ namespace CodebitsBlog.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName", "UserRoleId" },
-                values: new object[] { "8f698ed6-2f71-487f-a7df-c247347b19e8", 0, "5d57e5f7-dfe1-42ef-b74d-5bcfedaf0409", "james@gmail.com", false, "James", "Bond", false, null, null, null, "AQAAAAIAAYagAAAAEORnSTuQG//eq/TDG6ByfMrZVCply9TfLFZok+MKCHW+VCLGRWhGa1nNp4gVgZakyg==", null, false, "", null, false, "james@gmail.com", "1" });
+                values: new object[] { "1", 0, "560e11da-85c7-410b-9d9e-f2841bc6eb04", "james@gmail.com", false, "James", "Bond", false, null, "JAMES@GMAIL.COM", "JAMES@GMAIL.COM", "AQAAAAIAAYagAAAAEEZ4LpyWbXJkyg8uX7yBcSS53PhBWSX7MEi4KUSgDNEIlXJOtMjQBbQFYmeYyr8ylw==", null, false, "", "a0d2c05b-69e6-408e-8592-fa498fe46a4f", false, "james@gmail.com", "1" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "1", "1" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

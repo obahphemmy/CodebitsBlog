@@ -6,6 +6,9 @@ namespace CodebitsBlog.Areas.Admin.Services
     public interface IUserService
     {
         Task<IdentityResult> RegisterUser(ApplicationUser user, string password, string role = "User");
-        Task<IdentityResult> LoginUser(string email, string password, bool rememberMe);
+        Task<bool> LoginUser(string email, string password, bool rememberMe);
+        Task LogoutUser();
+
+        Task<string> UploadImage(IFormFile file);
     }
 }

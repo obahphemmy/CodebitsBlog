@@ -35,12 +35,21 @@ namespace CodebitsBlog.Data
                     FirstName = "James",
                     LastName = "Bond",
                     Email = "james@gmail.com",
-                    Id = Guid.NewGuid().ToString(),
+                    NormalizedEmail = "JAMES@GMAIL.COM",
+                    Id = "1",
                     UserName = "james@gmail.com",
+                    NormalizedUserName = "JAMES@GMAIL.COM",
                     PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "James@123"),
                     ProfilePictureUrl = "",
-                    UserRoleId = "1"
+                    UserRoleId = "1",
+                    SecurityStamp = Guid.NewGuid().ToString()
                 });
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "1",
+                UserId = "1"
+            });
         }
     }
 }
