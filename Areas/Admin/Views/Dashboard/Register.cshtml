@@ -112,6 +112,14 @@
 
     </div>
 
+    <script>
+        document.getElementById("upload-btn").addEventListener("click", function () {
+            let file = document.getElementById("userProfileImage");
+            let fileName = file.value;
+            var uploadBtn = document.getElementById('upload-btn');
+            uploadBtn.innerHTML = fileName;
+        })
+    </script>
     <!-- Bootstrap core JavaScript-->
     <script src="~/admin/vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
