@@ -1,20 +1,26 @@
 using CodebitsBlog.Areas.Admin.Models;
 using CodebitsBlog.Areas.Admin.Services;
+using CodebitsBlog.Areas.Admin.ViewModels;
+using CodebitsBlog.Data;
 using CodebitsBlog.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodebitsBlog.Areas.Admin.Controllers
 {
-	[Area("Admin")]
+    [Area("Admin")]
     [Authorize]
 	public class DashboardController : Controller
 	{
         private readonly IUserService _userService;
+        private readonly ApplicationDbContext _dbContext;
 
-        public DashboardController(IUserService userService)
+        public DashboardController(IUserService userService,
+            ApplicationDbContext dbContext)
         {
             _userService = userService;
+            _dbContext = dbContext;
         }
 
         
@@ -105,12 +111,34 @@ namespace CodebitsBlog.Areas.Admin.Controllers
 
         public async Task<IActionResult> Addpost()
         {
-            return View();
+            var categories = await _dbContext.Categories.ToListAsync();
+
+            var model = new PostViewModel
+            {
+                Categories = categories,
+                UserId = await _userService.GetCurrentUserId(User)
+            };
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Addpost(Models.Post post)
+        public async Task<IActionResult> Addpost(PostViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var post = new Post
+                {
+                    Title = model.Title,
+                    Body = model.Body,
+                    CategoryId = model.CategoryId,
+                    UserId = model.UserId
+                };
+
+                await _dbContext.Posts.AddAsync(post);
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
 
@@ -119,10 +147,29 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
 
-        [Authorize(Roles="User")]
+        [HttpGet]
         public async Task<IActionResult> AddCategory()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(CategoryViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var category = new Category
+                {
+                    Name = model.Name,
+                    Description = model.Description
+                };
+
+                await _dbContext.Categories.AddAsync(category);
+                await _dbContext.SaveChangesAsync();
+
+                return RedirectToAction("CategoryList", "Dashboard");
+            }
+            return View(model);
         }
 
         public async Task<IActionResult >Category()
@@ -150,7 +197,20 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             return View();
         }
-       
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Users()
+
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AddUser()
+
+        {
+            return View();
+        }
+
 
     }
 }

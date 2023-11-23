@@ -1,5 +1,6 @@
 ﻿using CodebitsBlog.Areas.Admin.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CodebitsBlog.Areas.Admin.Services
 {
@@ -10,5 +11,6 @@ namespace CodebitsBlog.Areas.Admin.Services
         Task LogoutUser();
 
         Task<string> UploadImage(IFormFile file);
+        Task<string> GetCurrentUserId(ClaimsPrincipal principal);
     }
 }

@@ -1,4 +1,4 @@
-﻿@model CodebitsBlog.Areas.Admin.Models.Post
+﻿@model PostViewModel
 
 @{
     ViewData["Title"] = "Add Post";
@@ -10,27 +10,43 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Add Post</h1>
 
-    <form asp-area="admin" asp-controller="dashboard" asp-action="login" method="post" class="user">
-        <div class="form-group">
-            <textarea type="text" class="form-control form-control-user"
-                   id="exampleInputEmail" aria-describedby="emailHelp"
-                   placeholder="Enter Post" asp-for="Body"></textarea>
+    <div class="row">
+        <div class="col-md-7">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <form asp-area="admin" asp-controller="dashboard" asp-action="addpost" method="post" class="user">
+
+                <div class="form-group">
+                    <input type="text" asp-for="Title" placeholder="Enter post title" class="form-control form-control-user" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+
+                <div class="form-group">
+                    <textarea type="text" class="form-control form-control-user"
+                              id="exampleInputEmail" aria-describedby="emailHelp"
+                              placeholder="Enter post body here..." asp-for="Body" style="resize:none; height: 300px; border-radius:10px"></textarea>
+                    <span asp-validation-for="Body"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <select asp-for="CategoryId" class="form-control">
+                        <option value="">Select post category</option>
+                            @foreach (var category in Model.Categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                    </select>
+                    <span asp-validation-for="CategoryId"></span>
+                </div>
+
+                <input type="hidden" value="@Model.UserId" asp-for="UserId" />
+
+                <input type="submit" value="Add Post" class="btn btn-primary btn-user btn-block" />
+
+            </form>
         </div>
-
-        <div class="form-group">
-            <label asp-for="Category">Choose a category:</label>
-
-            <select name="caategories">
-                <option value="Sports">Sports</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="News">News</option>
-                <option value="Update">Update</option>
-            </select>
-           </div>
-        
-        <input type="submit" value="Add" class="btn btn-primary btn-user btn-block" />
-       
-    </form>
+    </div>
     <hr>
 
 </div>

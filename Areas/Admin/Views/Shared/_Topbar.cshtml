@@ -3,8 +3,10 @@
 @inject UserManager<ApplicationUser> userManager
 
 @{
-    var profileImagesRootPath = utilityService.GetProfileImagesRootPath(operationType: false);
     var loggedInUser = await userManager.GetUserAsync(User);
+    var userRole = await userManager.GetRolesAsync(loggedInUser);
+    var userRoleName = userRole.FirstOrDefault();
+    var profileImagesRootPath = utilityService.GetProfileImagesRootPath(operationType: false);
     var userProfileImagePath = profileImagesRootPath + "/" + loggedInUser?.ProfilePictureUrl;
 }
 

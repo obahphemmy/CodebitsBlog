@@ -1,12 +1,18 @@
 ﻿namespace CodebitsBlog.Areas.Admin.Models
 {
-    public class Post
+    public class Post : BaseEntity
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public string Body { get; set; }
-        public string Category { get; set; }
+        public Post()
+        {
+            Comments = new List<Comment>();
+        }
+        public string? Title { get; set; }
+        public string? Body { get; set; }
+        public string? CoverImageUrl { get; set; }
+        public string? CategoryId { get; set; }
+        public virtual Category? Category { get; set; }
+        public string? UserId { get; set; }
+        public virtual ApplicationUser? User { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
-        public DateTime Date { get; set; }
     }
 }

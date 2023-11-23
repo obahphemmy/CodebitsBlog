@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CodebitsBlog.Areas.Admin.Models
+namespace CodebitsBlog.Areas.Admin.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage ="Please enter your first name")]
+        [Required(ErrorMessage = "Please enter your first name")]
         public string? FirstName { get; set; }
         [Required(ErrorMessage = "Please enter your last name")]
         public string? LastName { get; set; }

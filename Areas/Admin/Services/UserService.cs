@@ -2,6 +2,7 @@
 using CodebitsBlog.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CodebitsBlog.Areas.Admin.Services
 {
@@ -19,6 +20,13 @@ namespace CodebitsBlog.Areas.Admin.Services
             _signInManager = signInManager;
             _utilityService = utilityService;
         }
+
+        public Task<string> GetCurrentUserId(ClaimsPrincipal principal)
+        {
+            var userId = _userManager.GetUserId(principal);
+            return Task.FromResult(userId);
+        }
+
         public async Task<bool> LoginUser(string email, string password, bool rememberMe)
         {
             var user = await _userManager.FindByEmailAsync(email);
