@@ -180,7 +180,7 @@ namespace CodebitsBlog.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePictureUrl", "SecurityStamp", "TwoFactorEnabled", "UserName", "UserRoleId" },
-                values: new object[] { "1", 0, "560e11da-85c7-410b-9d9e-f2841bc6eb04", "james@gmail.com", false, "James", "Bond", false, null, "JAMES@GMAIL.COM", "JAMES@GMAIL.COM", "AQAAAAIAAYagAAAAEEZ4LpyWbXJkyg8uX7yBcSS53PhBWSX7MEi4KUSgDNEIlXJOtMjQBbQFYmeYyr8ylw==", null, false, "", "a0d2c05b-69e6-408e-8592-fa498fe46a4f", false, "james@gmail.com", "1" });
+                values: new object[] { "1", 0, "00b6663e-2b00-4c41-9868-4ac99088a2c7", "james@gmail.com", false, "James", "Bond", false, null, "JAMES@GMAIL.COM", "JAMES@GMAIL.COM", "AQAAAAIAAYagAAAAEPgzkKecDlZwnZCmT29Z8ena3qVbVbN/ai7MaVairalikRzs6X9lGjlpHvoAFGjhew==", null, false, "", "0bb47731-f263-4a18-ad4e-1d8bbbb8340d", false, "james@gmail.com", "1" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

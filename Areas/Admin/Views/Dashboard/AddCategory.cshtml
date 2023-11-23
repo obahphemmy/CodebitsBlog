@@ -1,0 +1,28 @@
+﻿<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Add Category</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-area="admin" asp-controller="Home" asp-action="Category" method="post" class="user">
+                <div class="form-group category">
+                    <label for="category_description">Category Name:</label>
+                    <input type="email" class="form-control form-control-user"
+                           id="exampleInputEmail" aria-describedby="emailHelp"
+                           placeholder="Enter Category Name...">
+                </div>
+
+                <div class="form-group">
+                    <label for="category_description">Category Description:</label>
+                    <textarea id="category_description" name="category_description" required class="form-control form-control-                    user category" style="resize:none; height:100px"></textarea>
+                </div>
+
+                <input type="submit" value="Add Category" class="btn btn-primary btn-user btn-block" />
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
