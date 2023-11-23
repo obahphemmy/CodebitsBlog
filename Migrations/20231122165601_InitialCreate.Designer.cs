@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodebitsBlog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231122100303_InitialCreate")]
+    [Migration("20231122165601_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -108,7 +108,7 @@ namespace CodebitsBlog.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "560e11da-85c7-410b-9d9e-f2841bc6eb04",
+                            ConcurrencyStamp = "00b6663e-2b00-4c41-9868-4ac99088a2c7",
                             Email = "james@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "James",
@@ -116,10 +116,10 @@ namespace CodebitsBlog.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JAMES@GMAIL.COM",
                             NormalizedUserName = "JAMES@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEZ4LpyWbXJkyg8uX7yBcSS53PhBWSX7MEi4KUSgDNEIlXJOtMjQBbQFYmeYyr8ylw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPgzkKecDlZwnZCmT29Z8ena3qVbVbN/ai7MaVairalikRzs6X9lGjlpHvoAFGjhew==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "",
-                            SecurityStamp = "a0d2c05b-69e6-408e-8592-fa498fe46a4f",
+                            SecurityStamp = "0bb47731-f263-4a18-ad4e-1d8bbbb8340d",
                             TwoFactorEnabled = false,
                             UserName = "james@gmail.com",
                             UserRoleId = "1"

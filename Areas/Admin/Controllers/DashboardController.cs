@@ -120,7 +120,12 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         }
 
         [Authorize(Roles="User")]
-        public async Task<IActionResult> Category()
+        public async Task<IActionResult> AddCategory()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult >Category()
         {
             return View();
         }
