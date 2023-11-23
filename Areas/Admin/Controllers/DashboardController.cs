@@ -109,7 +109,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Addpost(Post post)
+        public async Task<IActionResult> Addpost(Models.Post post)
         {
             return View();
         }
