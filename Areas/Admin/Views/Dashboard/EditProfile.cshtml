@@ -1,0 +1,59 @@
+﻿@model CodebitsBlog.Areas.Admin.Models.RegisterViewModel
+<div class="container-fluid mt-5">
+
+
+    <form asp-area="admin" asp-controller="dashboard" asp-action="register" method="post" class="user" enctype="multipart/form-data">
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                       placeholder="First Name" asp-for="FirstName">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="col-sm-6">
+                <input type="text" class="form-control form-control-user" id="exampleLastName"
+                       placeholder="Last Name" asp-for="LastName">
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <label for="userProfileImage" class="btn btn-info btn-user btn-block">
+                <i class="fab fa-camera fa-fw"></i> Upload New Profile Picture
+            </label>
+
+            <input type="file" style="display:none" class="form-control form-control-user" id="userProfileImage"
+                   placeholder="Upload Profile Picture" asp-for="UserProfilePicture">
+            <span asp-validation-for="UserProfilePicture" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="password" class="form-control form-control-user"
+                       id="exampleInputPassword" placeholder=" Old Password" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <input type="password" class="form-control form-control-user"
+                       id="exampleRepeatPassword" placeholder="New Password" asp-for="ConfirmPassword">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <input type="submit" value="Update Account" class="btn btn-primary btn-user btn-block" />
+
+        <hr>
+        
+        
+        </a>
+    </form>
+    <hr>
+  
+
+
+
+</div>
