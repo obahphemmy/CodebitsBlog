@@ -109,7 +109,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Post(PostListViewModel model)
+        public async Task<IActionResult> Post(PostViewModel model)
         {
             model.Posts = _dbContext.Posts;
             return View(model);
@@ -138,8 +138,8 @@ namespace CodebitsBlog.Areas.Admin.Controllers
 
                 var post = new Post
                 {
-                    Title = model.Title,
-                    Body = model.Body,
+                    Title = _utilityService.SanitizeHtml(model.Title),
+                    Body = _utilityService.SanitizeHtml(model.Body),
                     CategoryId = model.CategoryId,
                     UserId = model.UserId,
                     CoverImageUrl = CoverImage ?? ""
@@ -184,11 +184,6 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             }
             return View(model);
         }
-
-        public async Task<IActionResult >Category()
-        {
-            return View();
-        }
         public async Task<IActionResult> Comment()
 
         {
@@ -199,7 +194,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> CategoryList(CategoryListViewModel model)
+        public async Task<IActionResult> Category(CategoryViewModel model)
         {
             model.Categories = _dbContext.Categories;
             return View(model);
