@@ -15,5 +15,6 @@ namespace CodebitsBlog.Areas.Admin.ViewModels
         public string? CategoryId { get; set; }
         public string? UserId { get; set; }
         public ICollection<Category> Categories { get; set; } = new List<Category>();
+        public IFormFile? CoverImage { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using CodebitsBlog.Areas.Admin.Models;
 using CodebitsBlog.Areas.Admin.Services;
 using CodebitsBlog.Areas.Admin.ViewModels;
 using CodebitsBlog.Data;
+using CodebitsBlog.Helpers;
 using CodebitsBlog.Models;
 using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +17,15 @@ namespace CodebitsBlog.Areas.Admin.Controllers
 	{
         private readonly IUserService _userService;
         private readonly ApplicationDbContext _dbContext;
+        private readonly UtilityService _utilityService;
 
         public DashboardController(IUserService userService,
-            ApplicationDbContext dbContext)
+            ApplicationDbContext dbContext,
+            UtilityService utilityService)
         {
             _userService = userService;
             _dbContext = dbContext;
+            _utilityService = utilityService;
         }
 
         
@@ -171,9 +175,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
                     Description = model.Description
                 };
 
-                
-
-                category.Description = sanitizer.Sanitize(category.Description);
+                category.Description = _utilityService.SanitizeHtml(category.Description);
 
                 await _dbContext.Categories.AddAsync(category);
                 await _dbContext.SaveChangesAsync();
