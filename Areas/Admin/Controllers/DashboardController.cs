@@ -3,6 +3,7 @@ using CodebitsBlog.Areas.Admin.Services;
 using CodebitsBlog.Areas.Admin.ViewModels;
 using CodebitsBlog.Data;
 using CodebitsBlog.Models;
+using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -164,10 +165,14 @@ namespace CodebitsBlog.Areas.Admin.Controllers
                     Description = model.Description
                 };
 
+                
+
+                category.Description = sanitizer.Sanitize(category.Description);
+
                 await _dbContext.Categories.AddAsync(category);
                 await _dbContext.SaveChangesAsync();
 
-                return RedirectToAction("CategoryList", "Dashboard");
+                return RedirectToAction("AddCategory", "Dashboard");
             }
             return View(model);
         }

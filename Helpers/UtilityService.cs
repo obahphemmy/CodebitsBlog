@@ -1,4 +1,6 @@
-﻿namespace CodebitsBlog.Helpers
+﻿using Ganss.Xss;
+
+namespace CodebitsBlog.Helpers
 {
     public class UtilityService
     {
@@ -34,6 +36,12 @@
             }
 
             return operationType ? profileImagesPath : "/" + imagesPath;
+        }
+
+        public string SanitizeHtml(string content)
+        {
+            var sanitizer = new HtmlSanitizer();
+            return sanitizer.Sanitize(content);
         }
     }
 }
