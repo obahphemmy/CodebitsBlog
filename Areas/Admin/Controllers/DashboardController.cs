@@ -104,10 +104,13 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Post()
+        public async Task<IActionResult> Post(PostListViewModel model)
         {
-            return View();
+            model.Posts = _dbContext.Posts;
+            return View(model);
         }
+
+     
 
         public async Task<IActionResult> Addpost()
         {
@@ -126,12 +129,15 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var CoverImage = await _userService.UploadImage(model.CoverImage);
+
                 var post = new Post
                 {
                     Title = model.Title,
                     Body = model.Body,
                     CategoryId = model.CategoryId,
-                    UserId = model.UserId
+                    UserId = model.UserId,
+                    CoverImageUrl = CoverImage ?? ""
                 };
 
                 await _dbContext.Posts.AddAsync(post);
@@ -186,10 +192,10 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> CategoryList()
-
+        public async Task<IActionResult> CategoryList(CategoryListViewModel model)
         {
-            return View();
+            model.Categories = _dbContext.Categories;
+            return View(model);
         }
 
         public async Task<IActionResult> EditProfile()
@@ -205,10 +211,12 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View();
         }
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddUser()
+        public async Task<IActionResult> AddUsers()
 
         {
-            return View();
+
+
+            return RedirectToAction("Register");
         }
 
 
