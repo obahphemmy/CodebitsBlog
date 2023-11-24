@@ -27,74 +27,58 @@
         Interface
     </div>
 
+
+
+
     <!-- Nav Item - Posts Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fa-solid fa-signs-post "></i>
-            <span>Posts</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
 
-                <a class="collapse-item" href="#">List Of Posts</a>
-                <a class="collapse-item" href="#">Add Post</a>
-            </div>
+        <div class=" py-2 collapse-inner rounded">
+
+            <a class="collapse-item ms-5 px-3 text-white  " style="text-decoration:none; font-size:small" id="collapseUtilities" asp-controller="Dashboard" asp-action="Post">   <i class="fas fa-fw fa-cog"></i> <span> Post </span> </a>
+
         </div>
+
     </li>
+   
 
     <!-- Nav Item - Categories Collapse Menu -->
     <li class="nav-item">
 
-            <div class=" py-2 collapse-inner rounded">
+        <div class=" py-2 collapse-inner rounded">
 
-            <a class="collapse-item ms-5 px-3 text-white  " style="text-decoration:none" id="collapseUtilities" asp-controller="Dashboard" asp-action="Category"> <i class="fa fa-list-alt" aria-hidden="true"></i> Category</a>
-                
-            </div>
-       
-    </li>
+            <a class="collapse-item ms-5 px-3 text-white  " style="text-decoration:none;  font-size:small" id="collapseUtilities" asp-controller="Dashboard" asp-action="CategoryList"> <i class="fa fa-list-alt" aria-hidden="true"></i> <span>Category </span></a>
 
-
-
-    <!-- Nav Item - Comments Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComments"
-           aria-expanded="true" aria-controls="collapseComments">
-            <i class="fa-solid fa-comment"></i>
-            <span>Comments</span>
-        </a>
-        <div id="collapseComments" class="collapse" aria-labelledby="headingUtilities"
-             data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-
-                <a class="collapse-item" href="#">List Of Comments</a>
-
-            </div>
         </div>
+
     </li>
 
-    <!-- Nav Item - Users Collapse Menu -->
-    
-    @{
-        if (User.IsInRole("Admin"))
-        {
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
-                   aria-expanded="true" aria-controls="collapseUsers">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Users</span>
-                </a>
-                <div id="collapseUsers" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">List Of Users</a>
-                        <a class="collapse-item" href="#">Add Users</a>
 
-                    </div>
-                </div>
-            </li>
-        }
-    }
+    <!-- Nav Item Comments Collapse Menu -->
+    <li class="nav-item">
+
+        <div class=" py-2 collapse-inner rounded">
+
+            <a class="collapse-item ms-5 px-3 text-white  " style="text-decoration:none;  font-size:small" id="collapseUtilities" asp-controller="Dashboard" asp-action="Comment">  <i class="fa fa-comment"></i> <span> Comments </span></a>
+
+        </div>
+
+    </li>
+
+    <!-- Nav Item Users Collapse Menu -->
+    <li class="nav-item">
+
+        <div class=" py-2 collapse-inner rounded">
+
+            <a class="collapse-item ms-5 px-3 text-white  " style="text-decoration:none;  font-size:small" id="collapseUtilities" asp-controller="Dashboard" asp-action="Profile"><i class="fa fa-user"></i> <span> Users </span></a>
+
+        </div>
+
+    </li>
+
+
+
+
 
 
 
