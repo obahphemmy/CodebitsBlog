@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CodebitsBlog.Areas.Admin.ViewModels
 {
-    public class PostViewModel
+    public class AdminPostViewModel
     {
         [Required(ErrorMessage = "Please enter a post title")]
         [MinLength(3, ErrorMessage = "Post title must be at least 3 characters long")]
