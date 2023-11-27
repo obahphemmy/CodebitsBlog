@@ -134,7 +134,12 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var CoverImage = await _userService.UploadImage(model.CoverImage);
+                var coverImageUrl = "";
+
+                if (model.CoverImage != null)
+                {
+                    coverImageUrl = await _userService.UploadImage(model.CoverImage);
+                }
 
                 var post = new Post
                 {
@@ -142,7 +147,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
                     Body = _utilityService.SanitizeHtml(model.Body),
                     CategoryId = model.CategoryId,
                     UserId = model.UserId,
-                    CoverImageUrl = CoverImage ?? ""
+                    CoverImageUrl = coverImageUrl
                 };
 
                 await _dbContext.Posts.AddAsync(post);
