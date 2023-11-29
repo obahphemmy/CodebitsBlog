@@ -72,7 +72,7 @@ namespace CodebitsBlog.Areas.Admin.Services
 
             var fileExtension = Path.GetExtension(file.FileName);
 
-            if (fileExtension != ".jpeg" && fileExtension != ".jpg" && fileExtension != ".gif" && fileExtension != ".png")
+            if (fileExtension != ".jpeg" && fileExtension != ".jpg" && fileExtension != ".gif" && fileExtension != ".png" && fileExtension != ".webp")
             {
                 return string.Empty;
             }

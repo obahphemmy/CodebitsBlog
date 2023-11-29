@@ -109,19 +109,17 @@ namespace CodebitsBlog.Areas.Admin.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Post(PostViewModel model)
+        public async Task<IActionResult> Post(AdminPostViewModel model)
         {
             model.Posts = _dbContext.Posts;
             return View(model);
-        }
-
-     
+        }     
 
         public async Task<IActionResult> Addpost()
         {
             var categories = await _dbContext.Categories.ToListAsync();
 
-            var model = new PostViewModel
+            var model = new AdminPostViewModel
             {
                 Categories = categories,
                 UserId = await _userService.GetCurrentUserId(User)
@@ -130,7 +128,7 @@ namespace CodebitsBlog.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Addpost(PostViewModel model)
+        public async Task<IActionResult> Addpost(AdminPostViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -142,7 +140,8 @@ namespace CodebitsBlog.Areas.Admin.Controllers
                     Body = _utilityService.SanitizeHtml(model.Body),
                     CategoryId = model.CategoryId,
                     UserId = model.UserId,
-                    CoverImageUrl = CoverImage ?? ""
+                    CoverImageUrl = CoverImage ?? "",
+                    IsFeatured = model.IsFeatured
                 };
 
                 await _dbContext.Posts.AddAsync(post);

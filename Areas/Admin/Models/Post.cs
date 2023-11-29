@@ -14,5 +14,6 @@
         public string? UserId { get; set; }
         public virtual ApplicationUser? User { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
+        public bool? IsFeatured { get; set; }
     }
 }

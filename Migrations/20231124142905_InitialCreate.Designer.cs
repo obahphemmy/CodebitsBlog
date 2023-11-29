@@ -4,6 +4,7 @@ using CodebitsBlog.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodebitsBlog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231124142905_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +108,7 @@ namespace CodebitsBlog.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5c2820f-1e51-409b-8f90-5940b5004b2b",
+                            ConcurrencyStamp = "fe7370e4-333e-42b7-91bd-7bcf1ef44351",
                             Email = "james@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "James",
@@ -113,10 +116,10 @@ namespace CodebitsBlog.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JAMES@GMAIL.COM",
                             NormalizedUserName = "JAMES@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGIm+JP6F2mPThqUhlfkOBsF1K5+qnraYjvFBS5/ToVy1ZfOgfcPW3BBD8LLhtUN8Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENBvKAQZl8o4RLv4LJuJvgXxIDiwuvRrJZhgQ5KDSfWe9thWlBRTv/qCNlM7H5RRVw==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "",
-                            SecurityStamp = "a7568aa6-38cd-4bcd-8b48-6734e07eea42",
+                            SecurityStamp = "13921bfc-3bbe-47b3-9eec-07720a10e307",
                             TwoFactorEnabled = false,
                             UserName = "james@gmail.com",
                             UserRoleId = "1"
@@ -199,9 +202,6 @@ namespace CodebitsBlog.Migrations
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool?>("IsFeatured")
-                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");

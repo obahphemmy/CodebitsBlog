@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodebitsBlog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231123110539_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231124152702_IsFeaturedForPostView")]
+    partial class IsFeaturedForPostView
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,7 +108,7 @@ namespace CodebitsBlog.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5c7e16f4-55f7-42f7-b818-f9aff1e26031",
+                            ConcurrencyStamp = "d5c2820f-1e51-409b-8f90-5940b5004b2b",
                             Email = "james@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "James",
@@ -116,10 +116,10 @@ namespace CodebitsBlog.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JAMES@GMAIL.COM",
                             NormalizedUserName = "JAMES@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGaXkAbzRc3A6efDCXrC4htKAwEFX+gPxzDYRSBvF+S92L/uHFUtiP8Od/5U+iNGPg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGIm+JP6F2mPThqUhlfkOBsF1K5+qnraYjvFBS5/ToVy1ZfOgfcPW3BBD8LLhtUN8Q==",
                             PhoneNumberConfirmed = false,
                             ProfilePictureUrl = "",
-                            SecurityStamp = "bf819794-e007-4b49-8740-fbb33c4cd9ce",
+                            SecurityStamp = "a7568aa6-38cd-4bcd-8b48-6734e07eea42",
                             TwoFactorEnabled = false,
                             UserName = "james@gmail.com",
                             UserRoleId = "1"
@@ -202,6 +202,9 @@ namespace CodebitsBlog.Migrations
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool?>("IsFeatured")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");

@@ -2,6 +2,9 @@ using CodebitsBlog.Areas.Admin.Models;
 using CodebitsBlog.Areas.Admin.Services;
 using CodebitsBlog.Data;
 using CodebitsBlog.Helpers;
+using CodebitsBlog.Repositories;
+using CodebitsBlog.Repositories.Interface;
+using CodebitsBlog.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -48,8 +51,12 @@ namespace CodebitsBlog
 
 
 			builder.Services.AddScoped<IUserService, UserService>();
+			builder.Services.AddScoped<IPostRepository, PostRepository>();
+			builder.Services.AddScoped<IpostService, PostService>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
-			builder.Services.AddSingleton<UtilityService>();
+            builder.Services.AddSingleton<UtilityService>();
 
 			var app = builder.Build();
 

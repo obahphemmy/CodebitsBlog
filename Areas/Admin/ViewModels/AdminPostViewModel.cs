@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CodebitsBlog.Areas.Admin.ViewModels
 {
-    public class PostViewModel
+    public class AdminPostViewModel
     {
         [Required(ErrorMessage = "Please enter a post title")]
         [MinLength(3, ErrorMessage = "Post title must be at least 3 characters long")]
@@ -17,5 +17,6 @@ namespace CodebitsBlog.Areas.Admin.ViewModels
         public ICollection<Category> Categories { get; set; } = new List<Category>();
         public IFormFile? CoverImage { get; set; }
         public IEnumerable<Post> Posts { get; set; } = new List<Post>();
+        public bool? IsFeatured { get; set; }
     }
 }
