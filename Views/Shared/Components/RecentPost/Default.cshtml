@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CodebitsBlog.ViewModels.PostViewModel>
+@{
+    foreach (var post in Model)
+    {
+        <li>
+            <a href="single-post.html" class="d-flex align-items-center">
+                <img src="@Url.Content(post.CoverImageUrl)" alt="" class="img-fluid me-3">
+                <div>
+                    <div class="post-meta d-block"><span class="date">@post.Category</span> <span class="mx-1">&bullet;</span> <span>@post.PostDate</span></div>
+                    <span>@Html.Raw(@post.PostExtract)</span>
+                </div>
+            </a>
+        </li>
+    }
+}

@@ -1,0 +1,7 @@
+﻿@model CodebitsBlog.ViewModels.CategoryViewModel
+@{
+    foreach (var category in Model.Categories)
+    {
+        <li><a href="category.html"><i class="bi bi-chevron-right"></i> @category.Name </a></li>
+    }
+}
